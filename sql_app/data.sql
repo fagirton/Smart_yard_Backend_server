@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` tinyint(4) DEFAULT NULL,
-  `email` varchar(30) DEFAULT NULL,
+  `firstname` varchar(30) DEFAULT NULL,
   `hashed_password` varchar(30) DEFAULT NULL,
   `is_active` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
