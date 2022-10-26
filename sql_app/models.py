@@ -14,15 +14,15 @@ class User(Base):
     apartment = Column(Integer, unique=True, index=True)
     hashed_password = Column(String)
 
-    items = relationship("Item", back_populates="owner")
+    notices = relationship("Notice", back_populates="owner")
 
 
-class Item(Base):
-    __tablename__ = "items"
+class Notice(Base):
+    __tablename__ = "notices"
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
-    description = Column(String, index=True)
+    msg_body = Column(String, index=True)
     owner_id = Column(Integer, ForeignKey("users.id"))
 
-    owner = relationship("User", back_populates="items")
+    owner = relationship("User", back_populates="notices")

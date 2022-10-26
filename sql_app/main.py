@@ -40,14 +40,14 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
     return db_user
 
 
-@app.post("/users/{user_id}/items/", response_model=schemas.Item)
-def create_item_for_user(
-    user_id: int, item: schemas.ItemCreate, db: Session = Depends(get_db)
+@app.post("/users/{user_id}/notices/", response_model=schemas.Notice)
+def create_notice_for_user(
+    user_id: int, notice: schemas.NoticeCreate, db: Session = Depends(get_db)
 ):
-    return crud.create_user_item(db=db, item=item, user_id=user_id)
+    return crud.create_user_notice(db=db, notice=notice, user_id=user_id)
 
 
-@app.get("/items/", response_model=list[schemas.Item])
-def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    items = crud.get_items(db, skip=skip, limit=limit)
-    return items
+@app.get("/notices/", response_model=list[schemas.Notice])
+def read_notices(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    notices = crud.get_notices(db, skip=skip, limit=limit)
+    return notices

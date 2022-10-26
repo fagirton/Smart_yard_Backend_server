@@ -3,16 +3,16 @@ from typing import Union
 from pydantic import BaseModel
 
 
-class ItemBase(BaseModel):
+class NoticeBase(BaseModel):
     title: str
-    description: Union[str, None] = None
+    msg_body: Union[str, None] = None
 
 
-class ItemCreate(ItemBase):
+class NoticeCreate(NoticeBase):
     pass
 
 
-class Item(ItemBase):
+class Notice(NoticeBase):
     id: int
     owner_id: int
 
@@ -33,7 +33,7 @@ class UserCreate(UserBase):
 
 class User(UserBase):
     id: int
-    items: list[Item] = []
+    notices: list[Notice] = []
 
     class Config:
         orm_mode = True
