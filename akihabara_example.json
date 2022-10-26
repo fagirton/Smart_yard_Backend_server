@@ -1,0 +1,47 @@
+{
+  "firstname": "Kurisu",
+  "surname": "Makise",
+  "building": "Hotel",
+  "apartment": 14,
+  "password": "Kurigohan_and_Kamehameha"
+}
+
+{
+  "firstname": "Rintaro",
+  "surname": "Okabe",
+  "building": "Lab, 2nd floor",
+  "apartment": 2,
+  "password": "Hououin Kyouma"
+}
+
+{
+  "firstname": "Itaru",
+  "surname": "Hashida",
+  "building": "Lab, 2nd floor",
+  "apartment": 1,
+  "password": "Barrel Taitor"
+}
+
+{
+  "firstname": "Rumiho",
+  "surname": "Akiha",
+  "building": "MayQueen Nyan-Nyan",
+  "apartment": 1,
+  "password": "Faris Nyan-Nyan"
+}
+
+{
+  "firstname": "Mayuri",
+  "surname": "Shiina",
+  "building": "MayQueen Nyan-Nyan",
+  "apartment": 2,
+  "password": "Mayushii"
+}
+
+{
+  "firstname": "Luka",
+  "surname": "Urushibara",
+  "building": "Yanagibayashi Shrine",
+  "apartment": 2,
+  "password": "Lukako"
+}

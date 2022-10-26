@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import asyncio
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///yard.db"
+SQLALCHEMY_DATABASE_URL = "sqlite:///akihabara.db"
 # SQLALCHEMY_DATABASE_URL = "mysql+asyncmy://root:remotecontrol@localhost:3306/smart_yard"
 # SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
 
