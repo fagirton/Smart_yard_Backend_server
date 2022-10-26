@@ -10,6 +10,8 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     firstname = Column(String, unique=True, index=True)
     surname = Column(String, unique=True, index=True)
+    building = Column(String, unique=True, index=True)
+    apartment = Column(Integer, unique=True, index=True)
     hashed_password = Column(String)
 
     items = relationship("Item", back_populates="owner")

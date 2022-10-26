@@ -23,6 +23,8 @@ class Item(ItemBase):
 class UserBase(BaseModel):
     firstname: str
     surname: str
+    building: str
+    apartment: int
 
 
 class UserCreate(UserBase):

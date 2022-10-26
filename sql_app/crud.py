@@ -7,8 +7,8 @@ def get_user_by_id(db: Session, user_id: int):
     return db.query(models.User).filter(models.User.id == user_id).first()
 
 
-def get_user_by_firstname(db: Session, firstname: str):
-    return db.query(models.User).filter(models.User.firstname == firstname).first()
+def get_user_by_names(db: Session, firstname: str, surname: str):
+    return db.query(models.User).filter(models.User.firstname == firstname, models.User.surname == surname).first()
 
 
 def get_users(db: Session, skip: int = 0, limit: int = 100):
@@ -17,7 +17,7 @@ def get_users(db: Session, skip: int = 0, limit: int = 100):
 
 def create_user(db: Session, user: schemas.UserCreate):
     fake_hashed_password = user.password + "notreallyhashed"
-    db_user = models.User(firstname=user.firstname, surname=user.surname,  hashed_password=fake_hashed_password)
+    db_user = models.User(firstname=user.firstname, surname=user.surname, building=user.building, apartment=user.apartment,  hashed_password=fake_hashed_password)
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
