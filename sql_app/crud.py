@@ -42,9 +42,9 @@ def delete_user(db: Session, user_id: int):
     return db_deleted
 
 def get_buildings_list(db: Session, skip: int = 0, limit: int = 100):
-    buildings = (db.query(models.User.building).all())
+    buildings = list(set(db.query(models.User.building).all()))
     return buildings
 
 def get_apartments_list_by_building(db: Session, building: str, skip: int = 0, limit: int = 100):
-    buildings = (db.query(models.User.building).filter(models.User.building == building).all())
-    return buildings
+    apartment = list(set(db.query(models.User.apartment).filter(models.User.building == building).all()))
+    return apartment

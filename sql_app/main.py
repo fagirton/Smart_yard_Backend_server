@@ -1,9 +1,12 @@
+from json import JSONDecoder, JSONEncoder
 from fastapi import Depends, FastAPI, HTTPException
+from pydantic import JsonWrapper
 from sqlalchemy.orm import Session
 
 import crud, models, schemas
 from database import SessionLocal, engine
-from crud import get_buildings_list
+from crud import get_apartments_list_by_building, get_buildings_list
+
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -60,3 +63,11 @@ def delete_user(user_id: int):
 def read_buildings(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     buildings = get_buildings_list(db, skip=skip, limit=limit)
     return buildings
+
+# @app.get("/apartments/", response_model=list)
+# def read_apartments(building, skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+#     if building in get_buildings_list(db, skip=skip, limit=limit):
+#         apartments = get_apartments_list_by_building(db, building=building, skip=skip, limit=limit)
+#         return apartments
+#     else:raise HTTPException(status_code=404, detail=get_buildings_list(db, skip=skip, limit=limit))
+    
