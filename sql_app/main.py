@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 
 import crud, models, schemas
 from database import SessionLocal, engine
+from crud import get_buildings_list
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -41,9 +42,7 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
 
 
 @app.post("/users/{user_id}/notices/", response_model=schemas.Notice)
-def create_notice_for_user(
-    user_id: int, notice: schemas.NoticeCreate, db: Session = Depends(get_db)
-):
+def create_notice_for_user(user_id: int, notice: schemas.NoticeCreate, db: Session = Depends(get_db)):
     return crud.create_user_notice(db=db, notice=notice, user_id=user_id)
 
 
@@ -51,3 +50,13 @@ def create_notice_for_user(
 def read_notices(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     notices = crud.get_notices(db, skip=skip, limit=limit)
     return notices
+
+@app.delete('/users/delete/{user_id}', name="Удалить пользователя", response_model=schemas.User)
+def delete_user(user_id: int):
+    deleted_user = delete_user(user_id)
+    return deleted_user
+
+@app.get("/buildings/", response_model=list)
+def read_buildings(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    buildings = get_buildings_list(db, skip=skip, limit=limit)
+    return buildings
